@@ -62,7 +62,7 @@ if [ "$ENVSUBST" = true ]; then
     echo $VAR_VALUE
     echo $(sed -i "s/\$$VAR_KEY/$VAR_VALUE/g" $KUBE_YAML)
     echo "VAR_KEY: $VAR_KEY & VAR_VALUE: $VAR_VALUE"
-    sed -i "s/\$$VAR_KEY/$VAR_VALUE/g" $KUBE_YAML
+    sed -i "s/$$VAR_KEY/$VAR_VALUE/g" $KUBE_YAML
   done
 
 fi

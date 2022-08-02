@@ -53,7 +53,7 @@ if [ "$ENVSUBST" = true ]; then
   for ENV_VAR in $(env |cut -f 1 -d =); do
     VAR_KEY=$ENV_VAR
     VAR_VALUE=$(eval echo \$$ENV_VAR | sed -e 's/\//\\&/g;s/\&/\\&/g')
-    sed -i 's/\$'"$VAR_KEY"'/'"$VAR_VALUE"'/g' $KUBE_YAML
+    sed -i "s/\$$VAR_KEY/$VAR_VALUE/g" $KUBE_YAML
     echo ""
 
   done

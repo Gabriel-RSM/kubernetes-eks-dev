@@ -55,7 +55,7 @@ if [ "$ENVSUBST" = true ]; then
     #VAR_VALUE=$(eval echo \$$ENV_VAR | sed 's/\~|\`|\#|\$|\&|\*|\(|\)|\\|\||\[|\]|\;|\<|\>|\/|\?|\!|\ˆ|\^|\+|\@/\\&/g')
     echo "VAR_KEY: $VAR_KEY"
     echo "ENV_VAR: $ENV_VAR"
-    VAR_VALUE=$(eval echo \$$ENV_VAR | sed -e 's/\//\\&/g;s/\$/\\&/g;;s/\^/\\&/g')
+    VAR_VALUE=$(eval echo \$$ENV_VAR | sed -e 's/\//\\&/g;s/\$/\\&/g;s/\^/\\&/g;s/\&/\\&/g')
     echo "VAR_VALUE: $VAR_VALUE"
     echo "VAR_KEY: $VAR_KEY & VAR_VALUE: $VAR_VALUE"
     sed 's/\$'"$VAR_KEY"'/'"$VAR_VALUE"'/g' $KUBE_YAML
